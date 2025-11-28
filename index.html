@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Interactive Profile - Data Explorer</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configure Tailwind to use Inter font and enable JIT mode -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary-dark': '#1e293b', // Slate 800
+                        'secondary-dark': '#0f172a', // Slate 900
+                        'accent': '#3b82f6', // Blue 500
+                        'text-light': '#f8fafc', // Slate 50
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 10px;
+        }
+        /* Ensure the main container takes up the full viewport height */
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="min-h-screen antialiased">
+
+    <div id="app" class="flex flex-col lg:flex-row min-h-screen">
+
+        <!-- Sidebar / Navigation ("Folders") -->
+        <nav class="lg:w-64 w-full bg-secondary-dark p-6 shadow-2xl lg:shadow-xl flex-shrink-0">
+            <h1 class="text-3xl font-extrabold mb-8 text-text-light border-b border-gray-700 pb-4">
+                [My Profile]
+            </h1>
+
+            <div class="space-y-3">
+                <!-- Navigation Link: Home -->
+                <button data-section="home" class="nav-link w-full text-left flex items-center p-3 rounded-xl transition-all duration-200 bg-primary-dark hover:bg-slate-700 text-accent font-semibold">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-10v10a1 1 0 001 1h3m-6 0a1 1 0 00-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                    01. Overview
+                </button>
+
+                <!-- Navigation Link: Contact -->
+                <button data-section="contact" class="nav-link w-full text-left flex items-center p-3 rounded-xl transition-all duration-200 hover:bg-primary-dark">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-2 4v7a2 2 0 01-2 2H7a2 2 0 01-2-2v-7"></path></svg>
+                    02. Get In Touch
+                </button>
+
+                <!-- Navigation Link: Career (New 03) -->
+                <button data-section="career" class="nav-link w-full text-left flex items-center p-3 rounded-xl transition-all duration-200 hover:bg-primary-dark">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.518 23.518 0 0112 15c-3.15 0-6.19-.8-8-2.255"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11V5"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 8l-3-3-3 3"></path></svg>
+                    03. My Career
+                </button>
+            </div>
+
+            <div class="mt-8 pt-4 border-t border-gray-700 text-sm text-gray-500">
+                <p>&copy; 2025 Droduel Jigme Loday. All rights reserved.</p>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="flex-grow p-6 lg:p-10 overflow-y-auto">
+
+            <!-- Section 1: Overview (Home) -->
+            <section id="home" class="content-section space-y-8">
+                <!-- MODIFIED: Added a flex container and profile image -->
+                <div class="p-6 md:p-10 bg-primary-dark rounded-xl shadow-2xl flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-6">
+                    <!-- Profile Image (Placeholder) -->
+                    <img src="https://placehold.co/128x128/3b82f6/FFFFFF?text=DJL" 
+                         alt="Profile Picture Placeholder" 
+                         class="w-32 h-32 rounded-full border-4 border-accent shadow-lg flex-shrink-0">
+                    
+                    <!-- Text Content -->
+                    <div>
+                        <h2 class="text-4xl lg:text-5xl font-extrabold text-accent mb-2">Hello World! I'm Droduel Jigme Loday.</h2>
+                        <p class="text-xl text-gray-300">
+                            I am dedicated to finding elegant, creative solutions for every challenge I encounter.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Stat Card 1 - Updated to be generic -->
+                    <div class="p-6 bg-primary-dark rounded-xl shadow-lg border-t-4 border-accent">
+                        <h3 class="text-3xl font-bold mb-2">5+</h3>
+                        <p class="text-gray-400">Years of Focus</p>
+                    </div>
+                    <!-- Stat Card 3 - Updated to be generic -->
+                    <div class="p-6 bg-primary-dark rounded-xl shadow-lg border-t-4 border-purple-500">
+                        <h3 class="text-3xl font-bold mb-2">10k+</h3>
+                        <p class="text-gray-400">Hours of Dedication</p>
+                    </div>
+                </div>
+
+                <!-- UPDATED: Hobbies & Interests -->
+                <div class="p-6 bg-primary-dark rounded-xl shadow-lg border-l-4 border-yellow-400">
+                    <h3 class="text-2xl font-semibold mb-4 border-b border-gray-700 pb-2 flex items-center">
+                        <svg class="w-6 h-6 mr-2 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.152A1.402 1.402 0 0113.197 2.152L16.275 8.16l6.46.938A1.402 1.402 0 0122.378 11.758l-4.685 4.568 1.107 6.43A1.402 1.402 0 0116.035 23.493L12 20.841l-4.035 2.652A1.402 1.402 0 015.54 22.756l1.107-6.43-4.685-4.568A1.402 1.402 0 013.722 9.098l6.46-.938L11.049 2.152z"></path></svg>
+                        Hobbies & Interests
+                    </h3>
+                    <p class="text-gray-300 mb-4">
+                        My true passion lies in the competitive and tactical worlds of both traditional and electronic sports.
+                    </p>
+                    
+                    <!-- Football Detail -->
+                    <h4 class="text-xl font-semibold text-accent mb-2">The Beautiful Game: Football</h4>
+                    <p class="text-gray-400 mb-4">
+                        I am an avid follower of football, tracking the tactical evolution across major European leagues and international tournaments. The excitement, precision, and sustained excellence displayed by athletes like **Lionel Messi** are deeply inspiring, reflecting the importance of creative solutions and consistent high-level performance in any field.
+                    </p>
+
+                    <!-- Esports Detail -->
+                    <h4 class="text-xl font-semibold text-accent mb-2">The Digital Arena: Esports</h4>
+                    <p class="text-gray-400">
+                        I am also keenly involved in the world of esports. I enjoy the strategic depth and rapid decision-making required in titles like **PUBG**, the team coordination of **Mobile Legends (ML)**, and the competitive thrill of **FC Mobile**. These games test planning, execution, and adaptability—skills I value highly.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Section 2: My Career (New) -->
+            <section id="career" class="content-section hidden space-y-8">
+                <h2 class="text-3xl font-bold text-accent">My Career & Ambitions</h2>
+
+                <div class="p-6 bg-primary-dark rounded-xl shadow-lg">
+                    <h3 class="text-2xl font-semibold mb-4 border-b border-gray-700 pb-2">Future Focus</h3>
+                    <p class="text-gray-300">
+                        I am currently focusing on building foundational skills in data analysis and creative problem-solving. My long-term goal is to leverage these abilities in a role that combines technical execution with strategic thinking, such as a Data Scientist or an innovative Project Manager.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="p-6 bg-primary-dark rounded-xl shadow-lg border-l-4 border-red-500">
+                        <h4 class="text-xl font-semibold text-red-400 mb-2">Key Skills Development</h4>
+                        <ul class="list-disc list-inside space-y-1 text-gray-400 ml-4">
+                            <li>Advanced Excel & Data Visualization</li>
+                            <li>Introduction to Programming (Python/R)</li>
+                            <li>Database Management (SQL basics)</li>
+                        </ul>
+                    </div>
+                    <div class="p-6 bg-primary-dark rounded-xl shadow-lg border-l-4 border-blue-500">
+                        <h4 class="text-xl font-semibold text-blue-400 mb-2">Goals for the Next Year</h4>
+                        <ul class="list-disc list-inside space-y-1 text-gray-400 ml-4">
+                            <li>Complete a professional certification in Data Analytics.</li>
+                            <li>Build and document three real-world data projects.</li>
+                            <li>Contribute regularly to open-source or academic initiatives.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section 3: Contact (Now Section 4 in Nav logic, but 3rd content section) -->
+            <section id="contact" class="content-section hidden space-y-8">
+                <h2 class="text-3xl font-bold text-accent">Get In Touch</h2>
+
+                <div class="p-6 bg-primary-dark rounded-xl shadow-lg">
+                    <p class="text-xl mb-6 text-gray-300">I am currently open to new opportunities and collaborations. Feel free to reach out!</p>
+
+                    <div class="space-y-4">
+                        <div class="flex items-center text-lg">
+                            <svg class="w-6 h-6 mr-3 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-2 4v7a2 2 0 01-2 2H7a2 2 0 01-2-2v-7"></path></svg>
+                            <span class="text-gray-200">Email: <a href="mailto:droduel.jigmel2023@academy.bt" class="text-accent hover:underline">droduel.jigmel2023@academy.bt</a></span>
+                        </div>
+                        <div class="flex items-center text-lg">
+                            <svg class="w-6 h-6 mr-3 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                            <span class="text-gray-200">GitHub: <a href="https://github.com/drodueljigmelodey" class="text-accent hover:underline">/drodueljigmelodey</a></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Simple Contact Form Placeholder -->
+                <div class="p-6 bg-primary-dark rounded-xl shadow-lg">
+                    <h3 class="text-2xl font-semibold mb-4 border-b border-gray-700 pb-2">Send a quick message</h3>
+                    <form onsubmit="event.preventDefault(); showMessage('Your message has been noted! I will respond shortly.');">
+                        <input type="text" placeholder="Your Name" class="w-full p-3 mb-4 bg-slate-700 text-text-light rounded-lg border border-slate-600 focus:outline-none focus:ring-2 focus:ring-accent" required>
+                        <input type="email" placeholder="Your Email" class="w-full p-3 mb-4 bg-slate-700 text-text-light rounded-lg border border-slate-600 focus:outline-none focus:ring-2 focus:ring-accent" required>
+                        <textarea placeholder="Your Message" rows="4" class="w-full p-3 mb-4 bg-slate-700 text-text-light rounded-lg border border-slate-600 focus:outline-none focus:ring-2 focus:ring-accent" required></textarea>
+                        <button type="submit" class="w-full bg-accent hover:bg-blue-600 text-white font-bold py-3 rounded-lg transition duration-300 shadow-md">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <!-- Custom Message Box for alerts/confirmations -->
+        <div id="messageBox" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center p-4 z-50">
+            <div class="bg-primary-dark p-6 rounded-xl shadow-2xl max-w-sm w-full border-t-4 border-accent">
+                <p id="messageText" class="text-gray-200 text-lg mb-4"></p>
+                <button onclick="document.getElementById('messageBox').classList.add('hidden')" class="w-full bg-accent hover:bg-blue-600 text-white font-bold py-2 rounded-lg transition duration-300">
+                    OK
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Get all navigation links and content sections
+        const navLinks = document.querySelectorAll('.nav-link');
+        const contentSections = document.querySelectorAll('.content-section');
+
+        // Function to display custom message instead of alert()
+        function showMessage(message) {
+            document.getElementById('messageText').textContent = message;
+            document.getElementById('messageBox').classList.remove('hidden');
+            document.getElementById('messageBox').classList.add('flex');
+        }
+
+        // Function to handle showing the correct section
+        function showSection(sectionId) {
+            // Hide all content sections
+            contentSections.forEach(section => {
+                section.classList.add('hidden');
+            });
+
+            // Show the selected section
+            const selectedSection = document.getElementById(sectionId);
+            if (selectedSection) {
+                selectedSection.classList.remove('hidden');
+            }
+
+            // Update active class on navigation links
+            navLinks.forEach(link => {
+                link.classList.remove('bg-primary-dark', 'text-accent', 'font-semibold');
+                link.classList.add('text-gray-400');
+            });
+
+            const activeLink = document.querySelector(`.nav-link[data-section="${sectionId}"]`);
+            if (activeLink) {
+                activeLink.classList.remove('text-gray-400');
+                activeLink.classList.add('bg-primary-dark', 'text-accent', 'font-semibold');
+            }
+        }
+
+        // Add click event listener to all navigation links
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                const sectionId = this.getAttribute('data-section');
+                showSection(sectionId);
+            });
+        });
+
+        // Initialize the app by showing the home section
+        window.onload = function() {
+            showSection('home');
+        };
+    </script>
+
+</body>
+</html>
